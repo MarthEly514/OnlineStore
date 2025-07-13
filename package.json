@@ -19,5 +19,8 @@
     "express": "^5.1.0",
     "stripe": "^18.3.0",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "tailwindcss-animated": "^2.0.0"
   }
 }
