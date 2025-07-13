@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShoeHaven | Modern Sneakers Store</title>
+  <!--Stripe-->
+  <script src="https://js.stripe.com/v3/"></script>
+  <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans antialiased">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-600">ShoeHaven</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#" class="hover:text-indigo-600 transition">Home</a>
+        <a href="#products" class="hover:text-indigo-600 transition">Products</a>
+        <a href="#about" class="hover:text-indigo-600 transition">About</a>
+        <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+      </nav>
+      <div class="flex items-center space-x-4 relative">
+        <i class="fas fa-shopping-cart cursor-pointer text-xl" id="cartIcon" onclick="openCart();"></i>
+        <span id="cartCount"
+          class="bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-screen"
+    style="background-image: url('https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative container mx-auto px-6 flex flex-col justify-center h-full text-white">
+      <h2 class="text-5xl font-extrabold mb-4">Step Into Style</h2>
+      <p class="text-lg mb-6 max-w-xl">Discover the latest collection of premium sneakers from top brands around the
+        world.</p>
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full inline-block w-fit transition">
+        <a href="#products" style="color: white; text-decoration: none;">Shop Now</a>
+      </button>
+    </div>
+  </section>
+
+  <!-- Products Showcase -->
+  <section id="products" class="py-10 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center">Featured Sneakers</h2>
+
+      <!-- Search Input -->
+      <div class="mb-8 max-w-xl mx-auto">
+        <input type="text" id="searchInput" placeholder="Search for sneakers..." class="w-full p-3 border rounded-lg" />
+      </div>
+
+      <!-- Product Grid -->
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Products will be injected here by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black/10 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
+      <h3 class="text-xl font-bold mb-4">Your Cart</h3>
+      <div id="cartItems" class="space-y-4">
+        <!-- Cart items will be inserted here -->
+      </div>
+      <!-- Inside #cartModal -->
+      <div class="mt-6 text-right">
+        <p class="font-semibold mb-2" id="cartTotal">Total: $0.00</p>
+        <button onclick="checkout()" id="checkoutBtn"
+          class="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
+          Checkout
+        </button>
+        <button onclick="closeCart()" class="mt-2 px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">About ShoeHaven</h2>
+      <p class="max-w-2xl mx-auto text-gray-700">
+        We're passionate about footwear and dedicated to bringing you the freshest drops from global brands.
+        Whether you're into streetwear or performance running shoes, we've got something for every sole.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+      <form class="max-w-xl mx-auto space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg">
+        <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg">
+        <textarea placeholder="Your Message" rows="4" class="w-full p-3 border rounded-lg"></textarea>
+        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-white py-6 border-t">
+    <div class="container mx-auto px-6 text-center text-gray-600">
+      © 2025 ShoeHaven. All rights reserved.
+    </div>
+  </footer>
+
+<script src="main.js" defer></script>
+</body>
+
+</html>
