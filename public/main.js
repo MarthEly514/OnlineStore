@@ -119,6 +119,8 @@
 
     function openCart() {
       document.getElementById('cartModal').classList.remove('hidden');
+      document.getElementById('cartModal').classList.add('flex');
+
     }
 
     function closeCart() {

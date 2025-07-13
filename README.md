@@ -18,6 +18,7 @@ Welcome to **ShoeHaven**, a modern, clean, and responsive sneaker store built wi
 ##  Screenshots
 
 ![Home Page](screenshots/homepage.png)  
+![Products](screenshots/products.png)
 ![Cart Modal](screenshots/cart.png)
 
 ---
