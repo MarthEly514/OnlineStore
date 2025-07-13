@@ -92,4 +92,4 @@ Admin dashboard to manage inventory
 Dark mode toggle
 
 📄 License
-MIT License © 2025 [Marth Ely]
+MIT License © 2025 Marth Ely
