@@ -17,13 +17,17 @@
   <link rel="preload" fetchpriority="high" as="image"
     href="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://images.unsplash.com/photo-1565095747113-c462f5fbf6d6?q=80&w=955&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    type="image/webp">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" media="print"
-    onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Dancing+Script:wght@400..700&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet">
   </noscript>
 
   <!-- Fontawesome -->
@@ -33,6 +37,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Preload images for Brands section -->
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://static.vecteezy.com/system/resources/previews/014/414/689/non_2x/adidas-new-logo-on-transparent-background-free-vector.jpg"
+    type="image/jpeg">
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://static.vecteezy.com/system/resources/previews/021/963/706/non_2x/nike-logo-illustration-free-vector.jpg"
+    type="image/jpeg">
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://static.vecteezy.com/system/resources/previews/023/871/320/non_2x/reebok-logo-brand-clothes-black-symbol-design-icon-abstract-illustration-free-vector.jpg"
+    type="image/jpeg">
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://static.vecteezy.com/system/resources/previews/024/455/508/non_2x/vans-off-the-wall-brand-logo-black-symbol-design-icon-abstract-illustration-free-vector.jpg"
+    type="image/jpeg">
+  <!-- Preload image for Contact section -->
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://i.pinimg.com/1200x/d7/3e/01/d73e0174d44936dc097f39411e58846e.jpg" type="image/jpeg">
 </head>
 
 <body class="bg-gray-100 text-gray-900 font-sans antialiased">
@@ -41,7 +62,7 @@
   <header class="bg-black/30 backdrop-blur-2xl shadow-md fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <span class="flex items-center space-x-4">
-        <img src="shoeheavenLogo.png" alt="ShoeHeaven Logo" class="h-9">
+        <img loading="lazy" src="shoeheavenLogo.png" alt="ShoeHeaven Logo" width="370" height="318" class="h-9 w-9">
         <h1 class="text-2xl font-bold text-indigo-600 montserrat-regular">ShoeHeaven</h1>
       </span>
       <nav class="space-x-6 text-white hidden md:flex">
@@ -59,10 +80,7 @@
   </header>
 
   <!-- Hero Section -->
-  <!-- Photo1 link https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
-  <!-- Photo2 link https://images.unsplash.com/photo-1613972798457-45fc5237ae32?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
-  <!-- Photo3 link https://images.unsplash.com/photo-1525091924611-32d73c3438ae?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
-  <section class="relative bg-cover bg-center h-screen"
+  <section class="relative bg-cover bg-center w-full h-screen"
     style="background-image: url('https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
     <div class="absolute inset-0 bg-black opacity-30"></div>
     <div class="relative container mx-auto px-6 flex flex-col justify-center h-full text-white">
@@ -82,7 +100,8 @@
 
       <!-- Search Input -->
       <div class="mb-8 max-w-xl mx-auto">
-        <input type="text" id="searchInput" placeholder="Search for sneakers..." class="w-full p-3 border rounded-lg" />
+        <input type="text" id="searchInput" placeholder="Search for sneakers..."
+          class="w-full p-3 bg-gray-100 shadow rounded-lg focus:outline-indigo-400" />
       </div>
 
       <!-- Product Grid -->
@@ -104,11 +123,11 @@
   </div>
 
   <!-- Cart Modal -->
-  <div id="cartModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+  <div hidden id="cartModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
     <div class="bg-white p-6 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
       <h3 class="text-xl font-bold mb-4">Your Cart</h3>
       <div id="cartItems" class="space-y-4">
-        <!-- Cart items will be inserted here -->
+        <!-- Cart items will be inserted here from the JS file -->
       </div>
       <!-- Inside #cartModal -->
       <div class="mt-6 text-right">
@@ -123,32 +142,92 @@
   </div>
 
   <!-- About Section -->
-  <section id="about" class="py-16 bg-white">
+  <section id="about" class="bg-center bg-cover"
+    style="background-image: url('https://images.unsplash.com/photo-1565095747113-c462f5fbf6d6?q=80&w=955&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="container mx-auto px-6 text-center bg-white/80 backdrop-blur-2xl py-16">
+      <h2 class="hidden text-3xl font-bold mb-4 md:block">About ShoeHeaven</h2>
+      <div class="w-full px-5 flex items-center justify-center flex-col lg:flex-row">
+        <div>
+          <h2 class="text-3xl mb-6 text-left font-semibold dancing-script-regular">"It's all about the shoes."</h2>
+          <p class="w-full max-w-xl mx-auto text-gray-700 text-left">
+            We're passionate about footwear and dedicated to bringing you the freshest drops from global brands.
+            Whether you're into streetwear or performance running shoes, we've got something for every sole.
+          </p>
+        </div>
+        <img width="955" height="846" loading="lazy"
+          src="https://images.unsplash.com/photo-1565095747113-c462f5fbf6d6?q=80&w=955&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="About ShoeHeaven"
+          class="hidden mt-8 rounded-lg shadow-lg w-full max-w-2xl mx-auto aspect-[5/3] object-cover md:block">
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands Section -->
+  <section id="brands" class="py-16 bg-white">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">About ShoeHeaven</h2>
-      <p class="max-w-2xl mx-auto text-gray-700">
-        We're passionate about footwear and dedicated to bringing you the freshest drops from global brands.
-        Whether you're into streetwear or performance running shoes, we've got something for every sole.
-      </p>
+      <h2 class="text-3xl font-bold mb-4">Our Trusted Brands</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <img loading="lazy" width="128" height="128"
+          src="https://static.vecteezy.com/system/resources/previews/014/414/689/non_2x/adidas-new-logo-on-transparent-background-free-vector.jpg"
+          alt="Brand 1" class="mx-auto w-32 aspect-square object-cover">
+        <img loading="lazy" width="128" height="128"
+          src="https://static.vecteezy.com/system/resources/previews/021/963/706/non_2x/nike-logo-illustration-free-vector.jpg"
+          alt="Brand 2" class="mx-auto w-32 aspect-square object-cover">
+        <img loading="lazy" width="128" height="104"
+          src="https://static.vecteezy.com/system/resources/previews/023/871/320/non_2x/reebok-logo-brand-clothes-black-symbol-design-icon-abstract-illustration-free-vector.jpg"
+          alt="Brand 3" class="mx-auto w-32 aspect-square object-cover">
+        <img loading="lazy" width="128" height="105.08"
+          src="https://static.vecteezy.com/system/resources/previews/024/455/508/non_2x/vans-off-the-wall-brand-logo-black-symbol-design-icon-abstract-illustration-free-vector.jpg"
+          alt="Brand 4" class="mx-auto w-32 aspect-square object-cover">
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-      <form class="max-w-xl mx-auto space-y-4">
-        <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg">
-        <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg">
-        <textarea placeholder="Your Message" rows="4" class="w-full p-3 border rounded-lg"></textarea>
-        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
-          Send Message
-        </button>
-      </form>
+  <section id="contact" class="py-16 bg-[#DADEDD]">
+    <div class="container mx-auto px-6 text-center flex items-center justify-evenly">
+      <div class="relative w-full max-w-2xl h-full flex-col items-center justify-center hidden md:flex">
+        <img width="400" height="534" loading="lazy" src="https://i.pinimg.com/1200x/d7/3e/01/d73e0174d44936dc097f39411e58846e.jpg" alt="Contact Us"
+          class="mt-8 w-sm max-w-2xl aspect-auto object-contain ">
+        <div class=" absolute mt-8 w-sm max-w-2xl h-full mx-auto z-10 bg-radial to-[#DADEDD]"></div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold mb-10 md:ml-8 md:text-left">Let's Get In Touch!</h2>
+        <form class="max-w-xl mx-auto space-y-4 md:px-8">
+          <input type="text" placeholder="Your Name"
+            class="w-full p-3 bg-gray-100 shadow rounded-lg focus:outline-indigo-400">
+          <input type="email" placeholder="Your Email"
+            class="w-full p-3 bg-gray-100 shadow rounded-lg focus:outline-indigo-400">
+          <textarea placeholder="Your Message" rows="4"
+            class=" w-full p-3 bg-gray-100 shadow rounded-lg focus:outline-indigo-400"></textarea>
+          <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
+            Send Message
+          </button>
+        </form>
+      </div>
     </div>
   </section>
   <!-- Footer -->
-  <footer class="bg-white py-6 border-t">
+  <footer class="bg-white py-6 border-t flex flex-col items-center justify-center">
+    <span class="flex items-center justify-start w-full px-6 mb-6 space-x-4">
+      <img loading="lazy" src="shoeheavenLogo.png" alt="ShoeHeaven Logo" class="h-9 w-9">
+      <h1 class="text-2xl font-bold text-indigo-600 montserrat-regular">ShoeHeaven</h1>
+    </span>
+    <div class="container mx-auto px-6 flex justify-center space-x-6">
+      <a href="https://www.facebook.com" target="_blank" class="text-gray-500 hover:text-blue-600 transition">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.x.com" target="_blank" class="text-gray-500 hover:text-black transition">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank"
+        class="bg-gray-500 text-transparent inline-block bg-clip-text hover:bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500 transition">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="text-gray-500 hover:text-blue-500 transition">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
     <div class="container mx-auto px-6 text-center text-gray-600">
       © 2025 ShoeHeaven. All rights reserved.
     </div>

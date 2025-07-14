@@ -4,7 +4,7 @@
 .michroma-regular {
   font-family: "Michroma", sans-serif;
   font-weight: 400;
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -12,6 +12,12 @@
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
-  font-display: auto;
+  font-display: swap;
+  font-style: normal;
+}
+.dancing-script-regular {
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+  font-display: swap;
   font-style: normal;
 }

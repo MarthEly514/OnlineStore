@@ -24,7 +24,7 @@ function renderProducts(filteredProducts) {
   filteredProducts.forEach(product => {
     const productHTML = `
           <div class="bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
+            <img loading="lazy" src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
             <div class="p-4">
               <h3 class="font-semibold text-lg">${product.name}</h3>
               <p class="text-sm text-gray-600">${product.brand}</p>
@@ -119,13 +119,13 @@ function updateCartUI() {
 }
 
 function openCart() {
-  document.getElementById('cartModal').classList.remove('hidden');
-  document.getElementById('cartModal').classList.add('flex');
+
+  document.getElementById('cartModal').removeAttribute('hidden');
 
 }
 
 function closeCart() {
-  document.getElementById('cartModal').classList.add('hidden');
+  document.getElementById('cartModal').setAttribute('hidden', '');
 }
 
 function popupNotification() {
