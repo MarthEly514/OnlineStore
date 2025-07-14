@@ -1,12 +1,17 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY.trim());
 
 const app = express();
 app.use(cors());
+app.use(compression());
 app.use(express.json());
-app.use(express.static('public')); // make sure this exists
+app.use(express.static('public',{
+  maxAge: '1y',
+  immutable: true,
+})); 
 
 app.post('/create-checkout-session', async (req, res) => {
   try {

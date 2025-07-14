@@ -1,2 +1,17 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
+
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-display: auto;
+  font-style: normal;
+}
+
+.montserrat-regular {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-display: auto;
+  font-style: normal;
+}

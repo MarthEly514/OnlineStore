@@ -6,10 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShoeHeaven | Modern Sneakers Store</title>
   <!--Stripe-->
-  <script src="https://js.stripe.com/v3/"></script>
-  <!-- Tailwind CSS CDN -->
+  <script src="https://js.stripe.com/v3/" defer></script>
+  <!-- <link rel="preload" as="style" href="output.css"> -->
   <link rel="shortcut icon" href="shoeheavenLogo.png" type="image/x-icon">
-  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="output.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="output.css">
+  </noscript>
+
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    type="image/webp">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- Fontawesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,32 +38,35 @@
 <body class="bg-gray-100 text-gray-900 font-sans antialiased">
 
   <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
+  <header class="bg-black/30 backdrop-blur-2xl shadow-md fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <span class="flex items-center space-x-4">
         <img src="shoeheavenLogo.png" alt="ShoeHeaven Logo" class="h-9">
-      <h1 class="text-2xl font-bold text-indigo-600">ShoeHeaven</h1>
+        <h1 class="text-2xl font-bold text-indigo-600 montserrat-regular">ShoeHeaven</h1>
       </span>
-      <nav class="space-x-6 hidden md:flex">
+      <nav class="space-x-6 text-white hidden md:flex">
         <a href="#" class="hover:text-indigo-600 transition">Home</a>
         <a href="#products" class="hover:text-indigo-600 transition">Products</a>
         <a href="#about" class="hover:text-indigo-600 transition">About</a>
-        <a href="#contact" class="hover:text-indigo-6 00 transition">Contact</a>
+        <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
       </nav>
-      <div class="flex items-center space-x-4 relative">
-        <i class="fas fa-shopping-cart cursor-pointer text-xl" id="cartIcon" onclick="openCart();"></i>
+      <div class="flex items-center space-x-4 aspect-square cursor-pointer relative" onclick="openCart();">
+        <i class="fas fa-shopping-cart text-xl text-white" id="cartIcon"></i>
         <span id="cartCount"
-          class="bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+          class="bg-red-600 absolute top-0 right-0 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
+  <!-- Photo1 link https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
+  <!-- Photo2 link https://images.unsplash.com/photo-1613972798457-45fc5237ae32?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
+  <!-- Photo3 link https://images.unsplash.com/photo-1525091924611-32d73c3438ae?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
   <section class="relative bg-cover bg-center h-screen"
-    style="background-image: url('https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+    style="background-image: url('https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="absolute inset-0 bg-black opacity-30"></div>
     <div class="relative container mx-auto px-6 flex flex-col justify-center h-full text-white">
-      <h2 class="text-5xl font-extrabold mb-4">Step Into Style</h2>
+      <h2 class="text-5xl font-extrabold mb-4 michroma-regular">Step Into Style</h2>
       <p class="text-lg mb-6 max-w-xl">Discover the latest collection of premium sneakers from top brands around the
         world.</p>
       <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full inline-block w-fit transition">

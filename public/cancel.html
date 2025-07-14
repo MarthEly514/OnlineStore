@@ -5,19 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="shoeheavenLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Success</title>
 </head>
 
 <body>
     <div class="flex flex-col container mx-auto p-4 w-full h-screen items-center justify-center">
-        <h1 class="text-2xl font-bold text-indigo-600">ShoeHaven</h1>
-        <div class="mt-8 p-6 aspect-square flex flex-col items-center justify-center gap-4">
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <!-- <h1 class="text-2xl font-bold text-indigo-600">ShoeHaven</h1> -->
+        <!-- Notification for payment failure -->
+        <div class=" p-6 aspect-square flex flex-col items-center justify-center gap-4">
+            <img src="shoeheavenLogoFull.png" alt="ShoeHeaven Logo" class="h-30">
+            <div class="mt-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <i class="fas fa-times-circle text-red-500"></i>
                 <strong class="font-bold">Failed!</strong>
                 <span class="block sm:inline">Your payment was unsuccessful.</span>
             </div>
-            <img src="Failed.svg" class="w-[10vw] h-[10vw]" alt="Failed Icon">
+            <!-- <img src="Failed.svg" class="w-[10vw] h-[10vw]" alt="Failed Icon"> -->
             <h1 class="text-2xl font-bold">Payment Failed!</h1>
             <a class="p-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 transition" href="/">Back to Store</a>
         </div>
