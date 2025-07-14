@@ -56,7 +56,16 @@ searchInput.addEventListener('input', () => {
 
 // CART LOGIC
 const cart = [];
-
+function signalCartCount() {
+  const cartCount = document.getElementById('cartCount');
+  if (cart.length > 0) {
+    cartCount.classList.remove('hidden');
+    cartCount.classList.add('flex');
+  } else {
+    cartCount.classList.add('hidden');
+    cartCount.classList.remove('flex');
+  }
+}
 function addToCart(product) {
   const existingItem = cart.find(item => item.id === product.id);
   if (existingItem) {
@@ -100,13 +109,13 @@ function updateCartUI() {
     total += item.price * item.quantity;
 
     const itemHTML = `
-        <div class="flex justify-between border-b pb-2">
+        <div class="flex justify-between border-white border-b pb-2">
           <div>
             <p class="font-semibold">${item.name}</p>
             <p class="text-sm text-gray-600">$${item.price} x ${item.quantity}</p>
           </div>
           <div class="flex items-center space-x-2">
-            <input type="number" min="1" value="${item.quantity}" onchange="updateCartItem(${item.id}, parseInt(this.value))" class="w-12 text-center border rounded">
+            <input type="number" min="1" value="${item.quantity}" onchange="updateCartItem(${item.id}, parseInt(this.value))" class="w-12 p-2 text-center border-none focus:outline-none active:outline-none rounded">
             <button onclick="removeFromCart(${item.id})" class="text-red-500"><i class="fas fa-trash"></i></button>
           </div>
         </div>
@@ -116,6 +125,8 @@ function updateCartUI() {
 
   cartTotal.textContent = `Total: $${total.toFixed(2)}`;
   cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+  signalCartCount();
+
 }
 
 function openCart() {
@@ -128,31 +139,42 @@ function closeCart() {
   document.getElementById('cartModal').setAttribute('hidden', '');
 }
 
+let notificationTimeout;
+let progressInterval;
+
 function popupNotification() {
-  const notificationBar = document.getElementById('notificationBar');
   const notification = document.getElementById('notification');
+  const notificationBar = document.getElementById('notificationBar');
+  let duration = 4000; // 4 seconds
+  let remaining = duration;
+
+  // Clear previous timers
+  clearTimeout(notificationTimeout);
+  clearInterval(progressInterval);
+
+  // Reset progress bar
+  notificationBar.style.width = '100%';
+
+  // Show notification
   notification.classList.remove('hidden');
 
-  let duration = 4000;
-  let interval = 10;
-  let elapsed = 0;
+  // Animate progress bar
+  const startTime = Date.now();
+  progressInterval = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const percent = Math.max(0, 100 - (elapsed / duration) * 100);
+    notificationBar.style.width = percent + '%';
 
-  // Start progress bar timer
-  const timer = setInterval(() => {
-    elapsed += interval;
-    console.log(`Elapsed: ${elapsed}ms, Duration: ${duration}ms`);
-    
-    const progress = 100 - (elapsed * 100) / duration;
-    notificationBar.style.width = progress + '%';
-
-    if (elapsed >= duration) {
-      clearInterval(timer); // Important to stop the interval
+    if (percent <= 0) {
+      clearInterval(progressInterval);
     }
-  }, interval);
+  }, 16); // ~60fps
 
-  // Hide after duration
-  setTimeout(() => {
+  // Hide after timeout
+  notificationTimeout = setTimeout(() => {
     notification.classList.add('hidden');
+    notificationBar.style.width = '0%';
+    clearInterval(progressInterval);
   }, duration);
 }
 
@@ -179,6 +201,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function checkout() {
+  const button = document.getElementById('checkoutBtn');
+  const buttonText = document.getElementById('checkoutText');
+  const spinner = document.getElementById('checkoutSpinner');
+
+  // Disable button and show loading UI
+  button.disabled = true;
+  button.classList.add('opacity-60', 'cursor-not-allowed');
+  buttonText.textContent = 'In Progress...';
+  spinner.classList.remove('hidden');
+
   const cartItems = cart.map(item => ({
     price_data: {
       currency: 'usd',
@@ -191,6 +223,11 @@ async function checkout() {
     quantity: item.quantity,
   }));
   if (cartItems.length === 0) {
+    // Re-enable button regardless of result
+    button.disabled = false;
+    button.classList.remove('opacity-60', 'cursor-not-allowed');
+    buttonText.textContent = 'Checkout';
+    spinner.classList.add('hidden');
     alert('Your cart is empty!');
     return;
   }
@@ -226,5 +263,11 @@ async function checkout() {
   } catch (err) {
     console.error(err);
     alert('Failed to start checkout.');
+  }finally {
+    // Re-enable button regardless of result
+    button.disabled = false;
+    button.classList.remove('opacity-60', 'cursor-not-allowed');
+    buttonText.textContent = 'Checkout';
+    spinner.classList.add('hidden');
   }
 }

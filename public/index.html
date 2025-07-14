@@ -71,10 +71,11 @@
         <a href="#about" class="hover:text-indigo-600 transition">About</a>
         <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
       </nav>
-      <div class="flex items-center space-x-4 aspect-square cursor-pointer relative" onclick="openCart();">
+      <div class="flex items-center justify-center space-x-4 aspect-square cursor-pointer relative"
+        onclick="openCart();">
         <i class="fas fa-shopping-cart text-xl text-white" id="cartIcon"></i>
         <span id="cartCount"
-          class="bg-red-600 absolute top-0 right-0 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+          class="bg-red-600 absolute top-0 right-0 text-white text-xs rounded-full h-5 w-5 items-center justify-center hidden">0</span>
       </div>
     </div>
   </header>
@@ -113,30 +114,35 @@
 
   <!-- Add to Cart notification -->
   <div id="notification" onclick="openCart()"
-    class="fixed bottom-4 right-4 bg-white text-gray-700 py-4 px-6 rounded-lg shadow-lg cursor-pointer hidden animate-fade-left animate-duration-[450ms] animate-ease-in-out overflow-hidden">
-    <div id="notificationBar" class="absolute left-0 top-0 h-1 bg-green-500" style="width: 100%;"></div>
-    <div class="flex items-center space-x-2">
+    class="hidden fixed bottom-4 right-4 bg-white text-gray-700 py-4 px-6 rounded-lg shadow-lg cursor-pointer overflow-hidden">
+    <div id="notificationBar" class="absolute top-0 left-0 h-1 bg-green-500" style="width: 100%;"></div>
+    <div class="flex items-center gap-2">
       <i class="fas fa-check-circle text-green-500"></i>
-      <span class="font-semibold">New item added to cart</span>
+      <span class="font-semibold">Item added to cart</span>
     </div>
     <p class="text-sm text-indigo-500">Click to view cart</p>
   </div>
 
+
   <!-- Cart Modal -->
-  <div hidden id="cartModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
+  <div hidden id="cartModal" class="fixed inset-0 bg-neutral-800/60 flex items-center justify-center z-50">
+    <div class="bg-white/60 backdrop-blur-2xl p-6 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
       <h3 class="text-xl font-bold mb-4">Your Cart</h3>
       <div id="cartItems" class="space-y-4">
         <!-- Cart items will be inserted here from the JS file -->
       </div>
       <!-- Inside #cartModal -->
-      <div class="mt-6 text-right">
+      <div class="mt-6 text-right flex flex-col items-end">
         <p class="font-semibold mb-2" id="cartTotal">Total: $0.00</p>
-        <button onclick="checkout()" id="checkoutBtn"
-          class="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
-          Checkout
-        </button>
-        <button onclick="closeCart()" class="mt-2 px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Close</button>
+        <div class="flex items-center justify-end space-x-2">
+          <button onclick="checkout()" id="checkoutBtn"
+            class="px-6 py-2 bg-indigo-600 text-white rounded flex flex-row items-center gap-2 hover:bg-indigo-700 transition">
+            <span id="checkoutText">Checkout</span>
+            <span id="checkoutSpinner"
+              class="hidden animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+          </button>
+          <button onclick="closeCart()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Close</button>
+        </div>
       </div>
     </div>
   </div>
@@ -187,7 +193,8 @@
   <section id="contact" class="py-16 bg-[#DADEDD]">
     <div class="container mx-auto px-6 text-center flex items-center justify-evenly">
       <div class="relative w-full max-w-2xl h-full flex-col items-center justify-center hidden md:flex">
-        <img width="400" height="534" loading="lazy" src="https://i.pinimg.com/1200x/d7/3e/01/d73e0174d44936dc097f39411e58846e.jpg" alt="Contact Us"
+        <img width="400" height="534" loading="lazy"
+          src="https://i.pinimg.com/1200x/d7/3e/01/d73e0174d44936dc097f39411e58846e.jpg" alt="Contact Us"
           class="mt-8 w-sm max-w-2xl aspect-auto object-contain ">
         <div class=" absolute mt-8 w-sm max-w-2xl h-full mx-auto z-10 bg-radial to-[#DADEDD]"></div>
       </div>
