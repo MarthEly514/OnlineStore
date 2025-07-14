@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShoeHaven | Modern Sneakers Store</title>
+  <title>ShoeHeaven | Modern Sneakers Store</title>
   <!--Stripe-->
   <script src="https://js.stripe.com/v3/"></script>
   <!-- Tailwind CSS CDN -->
+  <link rel="shortcut icon" href="shoeheavenLogo.png" type="image/x-icon">
   <link rel="stylesheet" href="output.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -18,12 +20,15 @@
   <!-- Header -->
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-600">ShoeHaven</h1>
+      <span class="flex items-center space-x-4">
+        <img src="shoeheavenLogo.png" alt="ShoeHeaven Logo" class="h-9">
+      <h1 class="text-2xl font-bold text-indigo-600">ShoeHeaven</h1>
+      </span>
       <nav class="space-x-6 hidden md:flex">
         <a href="#" class="hover:text-indigo-600 transition">Home</a>
         <a href="#products" class="hover:text-indigo-600 transition">Products</a>
         <a href="#about" class="hover:text-indigo-600 transition">About</a>
-        <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+        <a href="#contact" class="hover:text-indigo-6 00 transition">Contact</a>
       </nav>
       <div class="flex items-center space-x-4 relative">
         <i class="fas fa-shopping-cart cursor-pointer text-xl" id="cartIcon" onclick="openCart();"></i>
@@ -65,7 +70,8 @@
   </section>
 
   <!-- Add to Cart notification -->
-  <div id="notification" onclick="openCart()" class="fixed bottom-4 right-4 bg-white text-gray-700 py-4 px-6 rounded-lg shadow-lg cursor-pointer hidden animate-fade-left animate-duration-[450ms] animate-ease-in-out overflow-hidden">
+  <div id="notification" onclick="openCart()"
+    class="fixed bottom-4 right-4 bg-white text-gray-700 py-4 px-6 rounded-lg shadow-lg cursor-pointer hidden animate-fade-left animate-duration-[450ms] animate-ease-in-out overflow-hidden">
     <div id="notificationBar" class="absolute left-0 top-0 h-1 bg-green-500" style="width: 100%;"></div>
     <div class="flex items-center space-x-2">
       <i class="fas fa-check-circle text-green-500"></i>
@@ -96,7 +102,7 @@
   <!-- About Section -->
   <section id="about" class="py-16 bg-white">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">About ShoeHaven</h2>
+      <h2 class="text-3xl font-bold mb-4">About ShoeHeaven</h2>
       <p class="max-w-2xl mx-auto text-gray-700">
         We're passionate about footwear and dedicated to bringing you the freshest drops from global brands.
         Whether you're into streetwear or performance running shoes, we've got something for every sole.
@@ -121,11 +127,11 @@
   <!-- Footer -->
   <footer class="bg-white py-6 border-t">
     <div class="container mx-auto px-6 text-center text-gray-600">
-      © 2025 ShoeHaven. All rights reserved.
+      © 2025 ShoeHeaven. All rights reserved.
     </div>
   </footer>
 
-<script src="main.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 
 </html>
